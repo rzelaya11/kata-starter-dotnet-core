@@ -12,8 +12,18 @@ namespace Kata
             {
                 return 0;
             }
+            
+            var separators = new []{",","\n"};
 
-            var tok = userInput.Split(new []{",","\n"}, StringSplitOptions.None).Select(int.Parse).ToArray();
+            var input = userInput;
+            if (input.StartsWith("//"))
+            {
+                var parts = userInput.Split("\n");
+                separators = new[] {parts.First().Replace("//", "")};
+                input = parts.Last();
+            }
+
+            var tok = input.Split(separators, StringSplitOptions.None).Select(int.Parse).ToArray();
             return tok.Sum();
         }
     }
