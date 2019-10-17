@@ -34,6 +34,9 @@ namespace Kata
                 .Select(int.Parse)
                 .ToArray();
 
+            var negatives = numbers.Where((x) => x < 0).ToArray();
+            if(negatives.Count() > 0)
+                throw new Exception("negatives not allowed: " + negatives[0]);
             return numbers.Sum();
         }
     }
