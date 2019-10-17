@@ -11,7 +11,9 @@ namespace Kata
             {
                 return 0;
             }
-            var numbers = text.Split(',')
+
+            var separators = new char[] {',', '\n'};
+            var numbers = text.Split(separators)
                 .Select(int.Parse)
                 .ToArray();
 
