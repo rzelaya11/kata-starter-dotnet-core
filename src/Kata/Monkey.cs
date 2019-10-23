@@ -16,5 +16,10 @@ namespace Kata
         {
             Belly.Add(food);
         }
+
+        public object Add()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -15,6 +15,28 @@ namespace Kata.Spec
 
         It should_have_the_food_in_its_belly = () =>
             _systemUnderTest.Belly.Should().Contain("banana");
+
+      
+    }
+    public class when_receiving_empty_string
+    {
+        Establish _context = () =>
+        {
+            _systemUnderTest = new Calculator();
+        };
+
+        Because of = () => { _result = _systemUnderTest.Add(); };
+
+        It should_Return_Zero = () => { _result.Should().Be(0); };
+        private static Calculator _systemUnderTest;
+        private static int _result;
+    }
+    internal class Calculator
+    {
+        public int Add()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
 
