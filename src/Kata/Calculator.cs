@@ -10,7 +10,7 @@ namespace Kata
             if (userInput.Length == 0) return 0;
 
             var numbers = userInput
-                .Split(",")
+                .Split(new []{",", "\n"}, StringSplitOptions.None)
                 .Select(int.Parse)
                 .ToArray();
 
