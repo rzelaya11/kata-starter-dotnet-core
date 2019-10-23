@@ -8,9 +8,17 @@ namespace Kata
         public int Add(string userInput = "")
         {
             if (userInput.Length == 0) return 0;
+            var delimiters = new []{",", "\n"};
+            var input = userInput;
+            if (userInput.StartsWith("//"))
+            {
+                var tokens = userInput.Split('\n');
+                delimiters = new[] {tokens[0].Replace("//", "")};
+                input = tokens.Last();
+            }
 
-            var numbers = userInput
-                .Split(new []{",", "\n"}, StringSplitOptions.None)
+            var numbers = input
+                .Split(delimiters, StringSplitOptions.None)
                 .Select(int.Parse)
                 .ToArray();
 
