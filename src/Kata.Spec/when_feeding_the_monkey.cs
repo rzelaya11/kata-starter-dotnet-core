@@ -18,6 +18,21 @@ namespace Kata.Spec
     }
 }
 
+public class when_sending_empty_string_as_parameter
+{
+    private static Calculator _systemUnderTest;
+    private static object _result;
+    
+    Establish _context = () =>
+    {
+        _systemUnderTest = new Calculator();
+    };
+
+    Because of = () => { _result = _systemUnderTest.Sum(""); };
+
+    It should_return_0 = () => { _result.Should().Be(null); };
+    
+}
 
 
 // 1. Given the user input is empty when calculating the sum then it should return zero.
