@@ -8,7 +8,16 @@ public  class Calculator
         if (data == "")
             return 0;
 
-        var numbers = data.Split( new [] {",","\n"}, StringSplitOptions.None).Select(int.Parse);
+        var input = data;
+        var delimiters = new[] {",", "\n"};
+        if (data.StartsWith("//"))
+        {
+            var tok = data.Split('\n');
+            input = tok[1];
+            delimiters = new[] {tok[0].Replace("//", "")};
+        }
+
+        var numbers = input.Split( delimiters, StringSplitOptions.None).Select(int.Parse);
         return numbers.Sum();
     }
 }
