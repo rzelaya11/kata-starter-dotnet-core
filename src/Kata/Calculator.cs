@@ -1,7 +1,12 @@
+using System;
+using System.Numerics;
+
 public partial class Calculator
 {
-    public int Sum(string empty)
+    public int Sum(string data)
     {
-        throw new System.NotImplementedException();
+        if(data =="" )return 0;
+        
+        return Int32.Parse(data);
     }
 }
