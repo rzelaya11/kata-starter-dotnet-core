@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 public  class Calculator
 {
@@ -6,6 +7,12 @@ public  class Calculator
     {
         if (data == "")
             return 0;
-        return Int32.Parse(data);
+
+        var numbers = data.Split(",").Select(int.Parse);
+        if (numbers.Count() == 1)
+        {
+            return numbers.First();
+        }
+        return numbers.First() + numbers.Last();
     }
 }
