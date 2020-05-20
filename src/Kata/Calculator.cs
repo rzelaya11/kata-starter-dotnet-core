@@ -14,12 +14,11 @@ public  class Calculator
         {
             var tok = data.Split('\n');
             input = tok[1];
-            delimiters = new[]
-            {
+            delimiters =
                 tok[0].Replace("//", "")
-                    .Replace("[","")
-                    .Replace("]","")
-            };
+                    .Replace("[", "")
+                    .Split("]");
+
         }
 
         var numbers = input.Split( delimiters, StringSplitOptions.None).Select(int.Parse).Where(x=> x<1001);
