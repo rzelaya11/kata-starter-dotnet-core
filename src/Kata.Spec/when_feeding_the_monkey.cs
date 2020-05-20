@@ -149,3 +149,17 @@ public class when_input_has_custom_multi_char_delimiter
     static int _result;
 }
 // 11. Given the user input is multiple numbers with multiple custom delimiters when calculating the sum then it should return the sum of all the numbers. (example “//[*][%]\n1*2%3” should return 6)
+
+public class when_having_multiple_multicharacters_delimiters
+{
+    Establish _context = () =>
+    {
+        _systemUnderTest = new Calculator();
+    };
+
+    Because of = () => { _result = _systemUnderTest.Sum("//[*][%]\n1*2%3"); };
+
+    It should_return_the_sum = () => { _result.Should().Be(6); };
+    private static Calculator _systemUnderTest;
+    private static int _result;
+}
