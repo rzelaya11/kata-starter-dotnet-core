@@ -10,8 +10,16 @@ public partial class Calculator
         if(data =="" )return 0;
 
         var delimiters = new[] {',', '\n'};
-        
-        var numbers = data.Split(delimiters).Select(Int32.Parse).ToArray();
+        var input = data;
+
+        if (data.StartsWith("//"))
+        {
+            var tokens = data.Split('\n');
+            delimiters = new[] {tokens[0].Replace("//","")[0]};
+            input = tokens[1];
+        }
+
+        var numbers = input.Split(delimiters).Select(Int32.Parse).ToArray();
 
         var sum = 0;
 
