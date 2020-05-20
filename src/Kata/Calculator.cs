@@ -10,7 +10,13 @@ public partial class Calculator
         if(data =="" )return 0;
 
         var numbers = data.Split(',').Select(Int32.Parse).ToArray();
-        
-        return numbers[0] + (numbers.Length>1 ? numbers[1] : 0);
+
+        var sum = 0;
+
+        foreach (var n in numbers)
+        {
+            sum += n;
+        }
+        return sum;
     }
 }
