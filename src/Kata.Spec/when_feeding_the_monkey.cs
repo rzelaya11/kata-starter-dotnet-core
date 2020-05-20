@@ -18,7 +18,16 @@ namespace Kata.Spec
     }
 }
 
+public class when_sending_empty_string
+{
+    private Establish _context = () => { _systemUnderTest = new Calculator(); };
 
+    Because of = () => { _result = _systemUnderTest.Sum(""); };
+
+    It should_return_zero = () => { _result.Should().Be(0); };
+    private static Calculator _systemUnderTest;
+    private static int _result;
+}
 
 // 1. Given the user input is empty when calculating the sum then it should return zero.
 // 2. Given the user input is one number when calculating the sum then it should return the same number. (example "3" should equal 3)
