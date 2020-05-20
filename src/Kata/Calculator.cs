@@ -9,7 +9,9 @@ public partial class Calculator
     {
         if(data =="" )return 0;
 
-        var numbers = data.Split(',').Select(Int32.Parse).ToArray();
+        var delimiters = new[] {',', '\n'};
+        
+        var numbers = data.Split(delimiters).Select(Int32.Parse).ToArray();
 
         var sum = 0;
 
