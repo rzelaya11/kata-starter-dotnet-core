@@ -17,7 +17,7 @@ public  class Calculator
             delimiters = new[] {tok[0].Replace("//", "")};
         }
 
-        var numbers = input.Split( delimiters, StringSplitOptions.None).Select(int.Parse);
+        var numbers = input.Split( delimiters, StringSplitOptions.None).Select(int.Parse).Where(x=> x<1001);
         var negatives = numbers.Where(x => x < 0);
         if (negatives.Any())
         {
