@@ -123,5 +123,19 @@ public class when_input_has_multiple_negatives
 }
 
 // 9. Given the user input contains numbers larger than 1000 when calculating the sum it should only sum the numbers less than 1001. (example 2 + 1001 = 2)
+
+public class when_having_numbers_greather_than_1000
+{
+    Establish _context = () =>
+    {
+        _systemUnderTest = new Calculator();
+    };
+
+    Because of = () => { _result = _systemUnderTest.Sum("1001,2"); };
+
+    It should_ignore_those_numbers = () => { _result.Should().Be(2); };
+    private static Calculator _systemUnderTest;
+    private static int _result;
+}
 // 10. Given the user input is multiple numbers with a custom multi-character delimiter when calculating the sum then it should return the sum of all the numbers. (example: “//[***]\n1***2***3” should return 6)
 // 11. Given the user input is multiple numbers with multiple custom delimiters when calculating the sum then it should return the sum of all the numbers. (example “//[*][%]\n1*2%3” should return 6)
