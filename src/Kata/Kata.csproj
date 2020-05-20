@@ -5,4 +5,15 @@
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Machine.Specifications" Version="1.0.0" />
+      <PackageReference Include="Machine.Specifications.AutoMocking" Version="1.5.10.2" />
+      <PackageReference Include="Machine.Specifications.Runner.Console" Version="1.0.0" />
+      <PackageReference Include="Machine.Specifications.Runner.TDNet" Version="1.0.0" />
+      <PackageReference Include="Machine.Specifications.Runner.Utility" Version="1.0.0" />
+      <PackageReference Include="Machine.Specifications.Runner.VisualStudio" Version="2.10.1" />
+      <PackageReference Include="Machine.Specifications.Should" Version="1.0.0" />
+      <PackageReference Include="Machine.Specifications.TeamCityParallelRunner" Version="0.9.0" />
+    </ItemGroup>
+
 </Project>
