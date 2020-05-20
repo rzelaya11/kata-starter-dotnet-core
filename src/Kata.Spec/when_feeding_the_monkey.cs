@@ -43,6 +43,20 @@ public class when_user_input_has_one_number
 // 1. Given the user input is empty when calculating the sum then it should return zero.
 // 2. Given the user input is one number when calculating the sum then it should return the same number. (example "3" should equal 3)
 // 3. Given the user input is two numbers when calculating the sum then it should return the sum of those numbers. (example "1,2" should equal 3)
+public class when_having_two_numbers
+{
+    Establish _context = () =>
+    {
+        _systemUnderTest = new Calculator();
+    };
+
+    Because of = () => { _result = _systemUnderTest.Sum("1,2"); };
+
+    It should_return_the_sum_of_both = () => { _result.Should().Be(3); };
+    private static Calculator _systemUnderTest;
+    private static int _result;
+}
+
 // 4. Given the user input is an unknown amount of numbers when calculating the sum then it should return the sum of all the numbers. (example "1,2,3" should equal 6)
 // 5. Given the user input is multiple numbers with new line and comma delimiters when calculating the sum then it should return the sum of all the numbers. (example "1\n2,3" should equal 6)
 // 6. Given the user input is multiple numbers with a custom single-character delimiter when calculating the sum then it should return the sum of all the numbers. (example “//;\n1;2” should return 3)
