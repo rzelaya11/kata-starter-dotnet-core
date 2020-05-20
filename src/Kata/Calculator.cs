@@ -8,7 +8,7 @@ public  class Calculator
         if (data == "")
             return 0;
 
-        var numbers = data.Split(",").Select(int.Parse);
+        var numbers = data.Split( new [] {",","\n"}, StringSplitOptions.None).Select(int.Parse);
         return numbers.Sum();
     }
 }
