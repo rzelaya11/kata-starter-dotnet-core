@@ -8,7 +8,7 @@ public class Calculator
         if(s == "" )
             return 0;
         var numbers = s.Split(",").Select(int.Parse).ToArray();
-        if (numbers.Length == 1) return numbers[0];
-        return numbers[0] + numbers[1];
+       
+        return numbers.Sum();
     }
 }
