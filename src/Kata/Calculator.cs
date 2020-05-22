@@ -1,7 +1,7 @@
 public class Calculator
 {
-    public int Sum()
+    public int Sum(string s = "")
     {
-        return -1;
+        return 0;
     }
 }

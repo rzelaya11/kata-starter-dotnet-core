@@ -35,6 +35,20 @@ public class when_Sending_empty_input
     private static int _result;
 }
 
+public class when_adding_with_one_number
+{
+    Establish _context = () =>
+    {
+        
+        _systemUnderTest = new Calculator();
+    };
+
+    Because of = () => { _result = _systemUnderTest.Sum("2"); };
+
+    It should_return_the_same_number = () => { _result.Should().Be(2); };
+    static Calculator _systemUnderTest;
+    static int _result;
+}
 
 // 2. Given the user input is one number when calculating the sum then it should return the same number. (example "3" should equal 3)
 // 3. Given the user input is two numbers when calculating the sum then it should return the sum of those numbers. (example "1,2" should equal 3)
